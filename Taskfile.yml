@@ -1,0 +1,20 @@
+default:
+  desc: 帮助文件
+  cmds:
+    - task -l
+
+build:
+  desc: 构建docker镜像
+  cmds:
+      - docker build -t quorum .
+      - docker tag quorum registry.cn-hangzhou.aliyuncs.com/yuanben/quorum
+
+push:
+  desc: docker push
+  cmds:
+    - docker push registry.cn-hangzhou.aliyuncs.com/yuanben/quorum
+
+test:
+  desc: test
+  cmds:
+    - docker run --rm quorum --help
